@@ -1,0 +1,11 @@
+
+<div *ngIf="hero">
+    <h2>{{ hero.name | uppercase }} Details</h2>
+    <div>id:{{ hero.id }}</div>
+    <div>
+      <label for="hero-name">Hero name:</label>
+      <!-- ngModel: conexión bidireccional entre el valor de un elemento del formulario y una propiedad en el componente-->
+      <input id="hero-name" [(ngModel)]="hero.name" placeholder="name" />
+    </div>
+  </div>
+  

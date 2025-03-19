@@ -8,5 +8,6 @@ import { Hero } from '../hero';
   styleUrls: ['./hero-detail.component.css']
 })
 export class HeroDetailComponent {
+  // input: pasar datos de un componente padre a un componente hijo. Estamos recibiendo del heroes.component el selectedHero
   @Input() hero?: Hero;
 }

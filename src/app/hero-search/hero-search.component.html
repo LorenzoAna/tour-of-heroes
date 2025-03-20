@@ -1,0 +1,14 @@
+<div id="search-component">
+    <label for="search-box">Hero Search</label>
+    <input #searchBox id="search-box" (input)="search(searchBox.value)" />
+  
+    <ul class="search-result">
+        <!-- heroes$, el $ es una convencion que indica que es un observable, no un array -->
+        <!-- async se suscribe automáticamente al observable heroes$. Cuando el observable emite un nuevo valor, async actualiza la vista con ese valor. -->
+      <li *ngFor="let hero of heroes$ | async" >
+        <a routerLink="/detail/{{hero.id}}">
+          {{hero.name}}
+        </a>
+      </li>
+    </ul>
+  </div>

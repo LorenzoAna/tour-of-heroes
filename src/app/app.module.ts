@@ -14,14 +14,6 @@ import { DashboardComponent } from './dashboard/dashboard.component';
 import { HeroSearchComponent } from './hero-search/hero-search.component';
 
 @NgModule({
-  declarations: [
-    AppComponent,
-    HeroesComponent,
-    HeroDetailComponent,
-    MessagesComponent,
-    DashboardComponent,
-    HeroSearchComponent,
-  ],
   imports: [
     BrowserModule,
     FormsModule,
@@ -34,6 +26,14 @@ import { HeroSearchComponent } from './hero-search/hero-search.component';
     HttpClientInMemoryWebApiModule.forRoot(InMemoryDataService, {
       dataEncapsulation: false,
     }),
+  ],
+  declarations: [
+    AppComponent,
+    HeroesComponent,
+    HeroDetailComponent,
+    MessagesComponent,
+    DashboardComponent,
+    HeroSearchComponent,
   ],
   providers: [],
   bootstrap: [AppComponent],

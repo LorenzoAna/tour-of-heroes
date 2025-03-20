@@ -1,14 +1,13 @@
 //@Injectable: decorador que se usa para marcar una clase como un servicio que puede ser inyectado en otros componentes o servicios.
 import { Injectable } from '@angular/core';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
-import { catchError, map, tap } from 'rxjs/operators';
 
 // rxjs: bibliteca para programacion asincrona
 import { Observable, of } from 'rxjs';
-import { MessageService } from './message.service';
+import { catchError, map, tap } from 'rxjs/operators';
 
 import { Hero } from './hero';
-import { HEROES } from './mock-heroes';
+import { MessageService } from './message.service';
 
 @Injectable({
   // La opción providedIn: 'root' indica que el servicio está disponible en toda la aplicación.

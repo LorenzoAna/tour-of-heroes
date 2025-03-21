@@ -3,8 +3,8 @@ import { Component, OnInit } from '@angular/core';
 import { Observable, Subject } from 'rxjs';
 // Para manipular los flujos de datos.
 import { debounceTime, distinctUntilChanged, switchMap } from 'rxjs/operators';
-import { Hero } from '../hero';
-import { HeroService } from '../hero.service';
+import { Hero } from '../../shared/models/hero';
+import { HeroService } from '../../core/services/hero.service';
 
 @Component({
   selector: 'app-hero-search',

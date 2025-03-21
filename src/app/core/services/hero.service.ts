@@ -5,9 +5,10 @@ import { HttpClient, HttpHeaders } from '@angular/common/http';
 // rxjs: bibliteca para programacion asincrona
 import { Observable, of } from 'rxjs';
 import { catchError, map, tap } from 'rxjs/operators';
+import { Hero } from 'src/app/shared/models/hero';
+import { MessageService } from 'src/app/core/services/message.service';
 
-import { Hero } from './hero';
-import { MessageService } from './message.service';
+
 
 @Injectable({
   // La opción providedIn: 'root' indica que el servicio está disponible en toda la aplicación.

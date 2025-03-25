@@ -47,4 +47,58 @@ describe('HeroService', () => {
     // Simulamos la respuesta de la API
     req.flush(mockHeroes);
   });
+
+  it('getHero debería devolver un héroe de la API por su ID', () => {
+    const mockHero: Hero = { id: 1, name: 'Superman' };
+
+    service.getHero(1).subscribe((hero) => {
+      expect(hero).toEqual(mockHero);
+    });
+
+    const req = httpMock.expectOne('api/heroes/1');
+    expect(req.request.method).toBe('GET');
+
+    req.flush(mockHero);
+  });
+
+  it('updateHero debería actualizar un héroe en la API ', () => {
+    const mockUpdateHero: Hero = { id: 1, name: 'Superman' };
+
+    service.updateHero(mockUpdateHero).subscribe((hero) => {
+      expect(hero).toEqual(mockUpdateHero);
+    });
+
+    const req = httpMock.expectOne('api/heroes');
+    expect(req.request.method).toBe('PUT');
+    expect(req.request.body).toEqual(mockUpdateHero); // Verifica que el cuerpo de la solicitud sea el héroe actualizado
+
+    req.flush(mockUpdateHero);
+  });
+
+  it('addHero debería añadir un héroe en la API ', () => {
+    const mockAddHero: Hero = { id: 3, name: 'Catwoman' };
+
+    service.addHero(mockAddHero).subscribe((hero) => {
+      expect(hero).toEqual(mockAddHero);
+    });
+
+    const req = httpMock.expectOne('api/heroes');
+    expect(req.request.method).toBe('POST');
+    expect(req.request.body).toEqual(mockAddHero); // Verifica que el cuerpo de la solicitud sea el héroe añadido
+
+    req.flush(mockAddHero);
+  });
+
+  it('deleteHero debería eliminar un héroe de la API', () => {
+    const mockDeletedHero: Hero = { id: 3, name: 'Catwoman' };
+
+    service.deleteHero(mockDeletedHero.id).subscribe((hero) => {
+      expect(hero).toEqual(mockDeletedHero);
+    });
+
+    const req = httpMock.expectOne('api/heroes/3');
+    expect(req.request.method).toBe('DELETE');
+
+    req.flush(mockDeletedHero);
+  });
 });

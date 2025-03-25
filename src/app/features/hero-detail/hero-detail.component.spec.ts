@@ -1,4 +1,8 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
+import { HttpClientTestingModule } from '@angular/common/http/testing';
+import { InMemoryWebApiModule } from 'angular-in-memory-web-api';
+import { InMemoryDataService } from 'src/app/core/services/in-memory-data.service';
+import { RouterTestingModule } from '@angular/router/testing';
 
 import { HeroDetailComponent } from './hero-detail.component';
 
@@ -8,7 +12,12 @@ describe('HeroDetailComponent', () => {
 
   beforeEach(() => {
     TestBed.configureTestingModule({
-      declarations: [HeroDetailComponent]
+      imports: [
+        HttpClientTestingModule,
+        InMemoryWebApiModule.forRoot(InMemoryDataService),
+        RouterTestingModule,
+      ],
+      declarations: [HeroDetailComponent],
     });
     fixture = TestBed.createComponent(HeroDetailComponent);
     component = fixture.componentInstance;
